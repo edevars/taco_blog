@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 
 
 STATUS = (
-    (0,"Draft"),
-    (1,"Publish")
+    (0,"Borrador"),
+    (1,"Publicado")
 )
 
 class Post(models.Model):
