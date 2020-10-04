@@ -11,10 +11,12 @@
 </head>
 
 <body>
+    {% include "navbar.html" %}
     <h1>Taco Blog!</h1>
     {% block content %}
     <!-- Content goes here -->
     {% endblock content %}
+    <script src="{% static 'js/index.js' %}"></script>
 </body>
 
 </html>
