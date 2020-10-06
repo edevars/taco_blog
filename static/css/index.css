@@ -1,0 +1,17 @@
+.main-icon {
+    margin: auto 24px;
+}
+
+@media (max-width: 720px) {
+    .main-icon {
+        margin: 0px auto;
+    }
+
+    .navbar-burger {
+        margin: 0px;
+    }
+
+    .is-size-1 {
+        font-size: 2.5rem !important;
+    }
+}
