@@ -2,15 +2,25 @@
     margin: auto 24px;
 }
 
+.post-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-items: center;
+    gap: 3rem;
+}
+
+.card {
+    margin: 0 auto;
+}
+
 @media (max-width: 720px) {
     .main-icon {
         margin: 0px auto;
     }
-
     .navbar-burger {
         margin: 0px;
     }
-
     .is-size-1 {
         font-size: 2.5rem !important;
     }

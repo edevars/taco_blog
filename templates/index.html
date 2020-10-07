@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% load static %}
 
 <section class="hero is-primary">
     <div class="hero-body">
@@ -16,12 +16,17 @@
 </section>
 
 <div class="container mt-6">
-    {% for post in post_list %}
-    <h2 class="subtitle">{{ post.title }}</h2>
-    <img src="{{ post.image.url }}" alt="{{ post.image }}">
-    {% empty %}
-    <h2 class="title">No hay posts aún publicados</h2>
-    {% endfor %}
+    <div class="post-grid">
+
+        {% for post in post_list %}
+        <div class="child" width=300>
+            {% include "post_card.html" %}
+        </div>
+
+        {% empty %}
+        <h2 class="title">No hay posts aún publicados</h2>
+        {% endfor %}
+    </div>
 </div>
 
 
