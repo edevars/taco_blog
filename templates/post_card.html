@@ -1,3 +1,5 @@
+{% load static %}
+
 <div class="card">
     <div class="card-image">
         <figure class="image is-4by3">
@@ -5,15 +7,16 @@
         </figure>
     </div>
     <div class="card-content">
-        <h4 class="title is-4"> {{ post.title }} </h4>
+        <h4 class="title is-4 is-capitalized"> {{ post.title }} </h4>
+        <p class="is-size-7 mb-4">{{ post.created_on }}</p>
         <div class="media">
-            <p class="subtitle is-6">{{ post.author }}</p>
+            <p class="subtitle is-6 has-text-info">@{{ post.author }}</p>
         </div>
 
         <div class="content">
-            {{ post.content }}
+            {{ post.content|slice:":200" }}
             <br>
-            <time>{{ post.created_on }}</time>
         </div>
+        <button class="button is-primary has-text-weight-bold">Leer más</button>
     </div>
 </div>
