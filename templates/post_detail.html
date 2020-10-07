@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container blog-content">
+    <h1 class="title">{% block title %} {{ object.title }} {% endblock title %}</h1>
+    <p class="subtitle">
+        <span class="has-text-primary has-text-weight-semibold">@{{ post.author }}</span>
+        <span class="has-text-weight-medium">| {{ post.created_on }}</span>
+    </p>
+    <img src="{{ post.image.url }}" alt="{{ post.image }}" class="blog-cover ">
+    <div class="container m-6">
+        <p class="is-size-5">{{ object.content | safe }}</p>
+    </div>
+
+</div>
+
+{% endblock content %}

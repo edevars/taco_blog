@@ -1,5 +1,5 @@
 {% load static %}
-
+{% block content %}
 <div class="card">
     <div class="card-image">
         <figure class="image is-4by3">
@@ -17,6 +17,7 @@
             {{ post.content|slice:":200" }}
             <br>
         </div>
-        <button class="button is-primary has-text-weight-bold">Leer más</button>
+        <a href="{% url 'post_detail' post.slug  %}" class="button is-primary has-text-weight-bold">Leer más</a>
     </div>
 </div>
+{%endblock%}
