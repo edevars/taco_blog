@@ -1,0 +1,31 @@
+{% extends "users/base.html" %}
+
+{% load static %}
+
+{% block head_content %}
+<title>Registrate | Taco Blog</title>
+{% endblock%}
+
+{% block container %}
+
+{% if error %}
+<p class="notification is-danger is-light">{{ error }}</p>
+{% endif%}
+
+<form action="{% url 'users:signup' %}" method="POST" class="form-login align-horizontal">
+    <h3 class="subtitle has-text-dark has-text-weight-bold">Regístrate</h3>
+
+    <img src="{% static 'img/taco_icon.png' %}" alt="logo" class="form-logo">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    <button class="button is-primary mb-4 mt-4" type="submit">Regístrate</button>
+
+</form>
+
+
+
+
+
+{% endblock %}
