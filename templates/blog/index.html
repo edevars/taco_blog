@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "blog/base.html" %}
 {% block content %}
 {% load static %}
 
@@ -20,7 +20,7 @@
 
         {% for post in post_list %}
         <div class="child" width=300>
-            {% include "post_card.html" %}
+            {% include "blog/post_card.html" %}
         </div>
 
         {% empty %}
