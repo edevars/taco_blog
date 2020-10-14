@@ -1,1 +1,42 @@
-<h1>Aquí es el login buto</h1>
+{% extends "users/base.html" %}
+
+{% load static %}
+
+{% block head_content %}
+<title>Inicia Sesión | Taco Blog</title>
+{% endblock%}
+
+{% block container %}
+
+{% if error %}
+<p class="notification is-danger is-light">{{ error }}</p>
+{% endif%}
+<form method="POST" action="{% url "users:login" %}" class="form-login align-horizontal">
+    {% csrf_token %}
+
+    <h3 class="subtitle has-text-dark has-text-weight-bold">Inicia sesión</h3>
+
+    <img src="{% static 'img/taco_icon.png' %}" alt="logo" class="form-logo">
+
+    <div class="field">
+        <div class="control">
+            <input class="input is-primary" type="text" placeholder="Username" name="username" />
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <input class="input is-primary" type="password" placeholder="Password" name="password" />
+        </div>
+    </div>
+
+
+    <button class="btn btn-primary btn-block mt-5" type="submit">Iniciar sesión</button>
+    <p class="has-text-centered">¿No tienes una cuenta aún? <a href="">¡Crea una aquí!</a></p>
+</form>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8">
+    {% block head_content %}{% endblock %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bulma.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+
+</head>
+<body>
+    
+    <div class="container align-vertical">
+        {% block container %} {% endblock %}
+    </div>
+                
+    
+           
+
+</body>
+</html>
