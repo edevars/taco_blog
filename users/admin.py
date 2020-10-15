@@ -10,7 +10,8 @@ from users.models import Profile
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
 
-    list_display = ('pk', 'user', 'phone_number', 'adress', 'website', 'picture')
+    list_display = ('pk', 'user', 'phone_number',
+                    'adress', 'website', 'picture')
     list_display_links = ('pk', 'user', 'phone_number')
     list_editable = ('website', 'picture')
     search_fields = (
@@ -28,7 +29,7 @@ class ProfileAdmin(admin.ModelAdmin):
         ('Extra info', {
             'fields': (
                 ('website', 'phone_number'),
-                ('adress'),
+                ('adress'), ('description')
             )
         }),
         ('Metadata', {
