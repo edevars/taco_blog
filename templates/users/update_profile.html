@@ -26,15 +26,43 @@
                         <img src="{% static 'img/default-profile.png' %}" class="is-rounded" />
                         {% endif %}
                     </figure>
-                        <p class="ml-3 mt-3 subtitle">@{{ user.username }}</p>
- 
+                    <p class="ml-3 mt-3 subtitle">@{{ user.username }}</p>
+
                 </div>
 
 
 
                 <!-- Error Handling -->
 
-                {% for error in form.website.errors %} {{ error }} {% endfor%}
+                {% for error in form.picture.errors %}
+                <div class="notification is-danger is-light">
+                    {{ error }}
+                </div>
+                {% endfor%}
+
+                {% for error in form.website.errors %}
+                <div class="notification is-danger is-light">
+                    {{ error }}
+                </div>
+                {% endfor%}
+
+                {% for error in form.adress.errors %}
+                <div class="notification is-danger is-light">
+                    {{ error }}
+                </div>
+                {% endfor%}
+
+                {% for error in form.description.errors %}
+                <div class="notification is-danger is-light">
+                    {{ error }}
+                </div>
+                {% endfor%}
+
+                {% for error in form.phone_number.errors %}
+                <div class="notification is-danger is-light">
+                    {{ error }}
+                </div>
+                {% endfor%}
 
 
 
@@ -57,9 +85,33 @@
                 </div>
 
 
+                <div class="field">
+                    <div class="control">
+                        <label class="label">Dirección</label>
+                        <input class="input {% if form.adress.errors %}is-danger{% endif %}" type="text" name="adress"
+                            id="adress" value="{{ profile.adress }}">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <label class="label">Descripción: {{ profile.description }}</label>
+                        <textarea name="description" id="description"
+                            class="textarea {% if form.description.errors %}is-danger{% endif %}"
+                            value="{{ profile.description }}"></textarea>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="control">
+                        <label class="label">Teléfono</label>
+                        <input class="input {% if form.phone_number.errors %}is-danger{% endif %}" type="text"
+                            name="phone_number" id="phone_number" value="{{ profile.phone_number }}">
+                    </div>
+                </div>
 
 
-                <button type="submit" class="button is-primary">Update info</button>
+                <button type="submit" class="button is-primary">Actualizar info</button>
             </form>
         </div>
     </section>
