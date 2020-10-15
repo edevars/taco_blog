@@ -13,18 +13,28 @@
         </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-menu">
+
         <div class="navbar-start">
             <a class="navbar-item" href="{% url 'blog:home' %}">
                 Blog
             </a>
+        </div>
 
-            <a href="{% url 'users:update' %}" class="navbar-item">
-                Actualizar perfil
+        <div class="navbar-end">
+            <a href="{% url 'users:update' %}">
+                <figure class="image is-48x48 mt-3 mr-6">
+                    {% if request.user.profile.picture %}
+                    <img src="{{ request.user.profile.picture.url }}" class="is-rounded" />
+                    {% else %}
+                    <img src="{% static 'img/default-profile.png' %}" class="is-rounded" />
+                    {% endif %}
+                </figure>
             </a>
 
             <a href="{% url 'users:logout' %}" class="navbar-item">
-                <p>salir</p> <i class="las la-sign-out-alt"></i>
+                <i class="las la-power-off la-2x"></i>
+                <p class="ml-2">salir</p>
             </a>
         </div>
     </div>
