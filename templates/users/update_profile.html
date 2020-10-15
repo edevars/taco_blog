@@ -7,32 +7,63 @@
 
 {% block container %}
 
+{% include "navbar.html" %}
+
 <div class="container">
 
-    <div class="row justify-content-md-center">
-        <div class="col-6 p-4" id="profile-box">
 
+    <section class="container">
+        <div class="form-update">
             <form action="{% url 'users:update' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
-                <figure class="image is-96x96">
-                    {% if profile.picture %}
+                <div class="user-pic-grid">
+                    <figure class="image is-96x96">
+                        {% if profile.picture %}
                         <img src="{{ profile.picture.url }}" class="is-rounded" />
-                      
-                    {% else%}
-                        <img src="{% static 'img/default-profile.png' %}" class="is-rounded" />
-                    {% endif %}
-                </figure>
 
-                <p class="subtitle">{{ profile.picture.url }}</p>
-                
-                <input type="file" name="picture" id="picture">
+                        {% else%}
+                        <img src="{% static 'img/default-profile.png' %}" class="is-rounded" />
+                        {% endif %}
+                    </figure>
+                        <p class="ml-3 mt-3 subtitle">@{{ user.username }}</p>
+ 
+                </div>
+
+
+
+                <!-- Error Handling -->
+
+                {% for error in form.website.errors %} {{ error }} {% endfor%}
+
+
+
+                <div class="field">
+                    <div class="control">
+                        <label class="label">Imagen</label>
+                        <input type="file" name="picture" id="picture">
+                    </div>
+                </div>
+
+
+
+
+                <div class="field">
+                    <div class="control">
+                        <label class="label">Website</label>
+                        <input class="input {% if form.website.errors %}is-danger{% endif %}" type="text" name="website"
+                            id="website" value="{{ profile.website }}">
+                    </div>
+                </div>
+
+
 
 
                 <button type="submit" class="button is-primary">Update info</button>
             </form>
         </div>
-    </div>
+    </section>
+
 </div>
 
 {% endblock %}

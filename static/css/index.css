@@ -34,6 +34,16 @@
     padding: 3rem;
 }
 
+.form-update {
+    max-width: 720px;
+    margin: 0 auto;
+    border: 2px solid hsl(171, 100%, 41%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
+
 
 .align-vertical {
     display: flex;
@@ -45,6 +55,11 @@
 
 .form-logo {
     width: 100px;
+}
+
+.user-pic-grid {
+    display: grid;
+    grid-template-columns: 96px 1fr;
 }
 
 @media (max-width: 720px) {

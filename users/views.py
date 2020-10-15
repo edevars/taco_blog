@@ -22,7 +22,7 @@ class UpdateProfileView(LoginRequiredMixin, UpdateView):
 
     template_name = 'users/update_profile.html'
     model = Profile
-    fields = ['picture']
+    fields = ['picture','website']
 
     def get_object(self):
         """Return user's profile."""
