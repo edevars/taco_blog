@@ -9,7 +9,7 @@ class ProfileCompletionMiddleware:
     def __call__(self, request):
         if not request.user.is_anonymous:
             profile = request.user.profile
-            if not profile.picture or not profile.biography:
+            if not profile.picture or not profile.description:
                 if request.path not in [reverse('users:update'), reverse('users:logout')]:
                     return redirect('users:update')
 
