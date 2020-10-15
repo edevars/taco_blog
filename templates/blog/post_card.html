@@ -17,7 +17,7 @@
             {{ post.content|slice:":200" }}
             <br>
         </div>
-        <a href="{% url 'post_detail' post.slug  %}" class="button is-primary has-text-weight-bold">Leer más</a>
+        <a href="{% url 'blog:post_detail' post.slug  %}" class="button is-primary has-text-weight-bold">Leer más</a>
     </div>
 </div>
 {%endblock%}
